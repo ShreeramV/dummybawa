@@ -54,27 +54,17 @@
             <i class="fa-solid fa-magnifying-glass"></i>
         </form>
         <div class="products" id="products">
-
+            {%for pic in picture%}
             <!-- Load product images using Django static tag -->
             <div class="products-box">
-                <img src="{% static 'img/img2.png' %}" alt="" style="width: 200px;height: 200px;"> 
-                <p>Black Shirt</p>
+                <img src="{{ pic.image.url }}" alt="" style="width: 200px;height: 200px;"> 
+                <p>{{ pic.title}}</p>
+                <p>{{pic.desc}}</p>
+                <a href="{{pic.link}}" target="_blank">click me</a>
             </div>
+            {%endfor%}
 
-            <div class="products-box">
-                <img src="{% static 'img/img1.png' %}" alt="" style="width: 200px;height: 200px;">
-                <p>White Shirt</p>
-            </div>
-
-            <div class="products-box">
-                <img src="{% static 'img/img2.png' %}" alt="" style="width: 200px;height: 200px;">
-                <p>Black Shirt</p>
-            </div>
-
-            <div class="products-box">
-                <img src="{% static 'img/img1.png' %}" alt="" style="width: 200px;height: 200px;">
-                <p>White Shirt</p>
-            </div>
+           
 
             <!-- You can dynamically render products with Django ORM in the future -->
         </div>

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import photos
 
 # Home view
 def home(request):
@@ -6,7 +7,8 @@ def home(request):
 
 # Collections view
 def collection(request):
-    return render(request, 'myApp/collection.html')  # This is your collections page
+    pic = photos.objects.all()
+    return render(request, 'myApp/collection.html',{"picture":pic})  # This is your collections page
 
 # Contact view
 def contact(request):
